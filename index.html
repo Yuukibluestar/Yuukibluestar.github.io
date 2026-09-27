@@ -44,6 +44,29 @@
     );
     pointer-events: none;
     z-index: 999;
+    
+  }
+  nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background-color: #0a0a12;
+  padding: 15px 20px;
+  border-bottom: 2px solid var(--neon-cyan);
+  }
+
+ nav a {
+  color: #ffffff;
+  font-family: 'VT323', monospace;
+  font-size: 1.3em;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+  }
+
+  nav a:hover {
+  color: var(--neon-pink);
+  text-shadow: 0 0 8px var(--neon-pink);
   }
 
   header {
@@ -162,6 +185,13 @@
 </style>
 </head>
 <body>
+
+  <nav>
+  <a href="#">Home</a>
+  <a href="#about">About Me</a>
+  <a href="#skills">Skills</a>
+  <a href="#goals">Goals</a>
+</nav>
 
   <header>
     <img src="logo.jpg" alt="Company Logo">
