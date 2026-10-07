@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixel Futures Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --neon-cyan: #00fff2;
+    --neon-pink: #ff2ec4;
+    --neon-yellow: #ffe100;
+    --bg-dark: #0a0a12;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background-color: var(--bg-dark);
+    background-image:
+      linear-gradient(rgba(255,46,196,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,46,196,0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: #ddd;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Crect x='2' y='2' width='4' height='4' fill='%2300fff2'/%3E%3Crect x='6' y='6' width='4' height='4' fill='%2300fff2'/%3E%3Crect x='10' y='10' width='4' height='4' fill='%2300fff2'/%3E%3Crect x='14' y='14' width='4' height='4' fill='%2300fff2'/%3E%3C/svg%3E") 0 0, auto;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* CRT scanline overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.035) 0px,
+      rgba(255,255,255,0.035) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    pointer-events: none;
+    z-index: 999;
+    
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+    border-bottom: 2px solid var(--neon-pink);
+  }
+
+  header img {
+    height: 55px;
+    width: 55px;
+    border-radius: 6px;
+    border: 2px solid var(--neon-cyan);
+  }
+
+  h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.4em;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan), 0 0 15px var(--neon-cyan);
+    margin: 0;
+    letter-spacing: 2px;
+  }
+
+  main {
+    max-width: 750px;
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+
+  .tagline {
+    font-size: 1.4em;
+    color: var(--neon-yellow);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .tagline::after {
+    content: "_";
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  section {
+    border: 1px solid var(--neon-cyan);
+    background: rgba(0, 255, 242, 0.04);
+    padding: 20px 25px;
+    margin-bottom: 35px;
+    border-radius: 4px;
+  }
+
+  h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9em;
+    color: var(--neon-pink);
+    text-shadow: 0 0 6px var(--neon-pink);
+    margin-top: 0;
+  }
+
+  .gallery img {
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    margin: 15px auto 0;
+    border: 3px solid var(--neon-cyan);
+    filter: saturate(1.1) contrast(1.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 25px var(--neon-cyan);
+    cursor: pointer;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px 15px;
+    border-top: 2px solid var(--neon-pink);
+    font-size: 0.9em;
+  }
+
+  footer a {
+    color: var(--neon-yellow);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: text-shadow 0.2s ease, color 0.2s ease;
+  }
+
+  footer a:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px var(--neon-cyan);
+  }
+
+  .cursor-trail {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--neon-cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 8px var(--neon-cyan);
+    animation: fadeTrail 0.5s forwards;
+    z-index: 998;
+  }
+
+  @keyframes fadeTrail {
+    to { opacity: 0; transform: scale(0.2); }
+  }
+</style>
+</head>
+<body>
+  
+  <header>
+    <img src="logo.jpg" alt="Company Logo">
+    <h1>PIXEL FUTURES CO.</h1>
+  </header>
+
+  <main>
+    <p class="tagline">BUILDING TOMORROW, ONE PIXEL AT A TIME</p>
+
+    <section>
+      <h2>&gt; INTRO</h2>
+      <p>Pixel Futures Co. is here to help you relive the past. We specialize in restoring and selling classic consoles, so the games and systems you grew up with can find a home in your life again. </p>
+    </section>
+
+    <section>
+      <h2>&gt; ABOUT ME</h2>
+      <p>I'm Irving Melendez, a lifelong gamer with a growing interest in game design and older consoles. I'm building Pixel Futures Co. as part of my coursework, a brand rooted in nostalgia, made by someone who never really stopped loving retro gaming.</p>
+    </section>
+
+    <section class="gallery">
+      <h2>&gt; GALLERY</h2>
+      <img src="photo.jpg" alt="Project or concept image">
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2012 Pixel Futures Co. All Rights Reserved.</p>
+    <p>
+      <a href="https://github.com/Yuukibluestar" target="_blank">GitHub</a> |
+      <a href="mailto:youremail@example.com">Email</a> |
+      <a href="#">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    document.addEventListener('mousemove', (e) => {
+      const dot = document.createElement('div');
+      dot.className = 'cursor-trail';
+      dot.style.left = e.pageX + 'px';
+      dot.style.top = e.pageY + 'px';
+      document.body.appendChild(dot);
+      setTimeout(() => dot.remove(), 500);
+    });
+  </script>
+
+</body>
+</html>
