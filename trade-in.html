@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trade-In Info | Pixel Futures Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <header>
+    <img src="logo.jpg" alt="Company Logo">
+    <h1>PIXEL FUTURES CO.</h1>
+  </header>
+
+  <!-- Navigation bar: semantic nav + unordered list -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li class="has-dropdown">
+        <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="inventory-menu">Inventory</button>
+        <ul class="submenu" id="inventory-menu">
+          <li><a href="inventory.html">All Items</a></li>
+          <li><a href="inventory.html#consoles">Consoles</a></li>
+          <li><a href="inventory.html#games">Games</a></li>
+        </ul>
+      </li>
+      <li><a href="trade-in.html" aria-current="page">Trade-In Info</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>&gt; TRADE-IN INFO</h2>
+      <p>Coming soon.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2012 Pixel Futures Co. All Rights Reserved.</p>
+    <p>
+      <a href="https://github.com/Yuukibluestar" target="_blank">GitHub</a> |
+      <a href="mailto:youremail@example.com">Email</a> |
+      <a href="#">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    document.addEventListener('mousemove', (e) => {
+      const dot = document.createElement('div');
+      dot.className = 'cursor-trail';
+      dot.style.left = e.pageX + 'px';
+      dot.style.top = e.pageY + 'px';
+      document.body.appendChild(dot);
+      setTimeout(() => dot.remove(), 500);
+    });
+  </script>
+  <script src="script.js"></script>
+
+</body>
+</html>
