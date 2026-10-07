@@ -1,0 +1,116 @@
+/* ===== Variables & Reset ===== */
+:root {
+  --neon-cyan: #00fff2;
+  --neon-pink: #ff2ec4;
+  --bg-dark: #0a0a12;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: #ffffff;
+  font-family: 'Trebuchet MS', Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+/* ===== Navigation Bar: Flexbox Layout ===== */
+.main-nav {
+  background-color: var(--bg-dark);
+  border-bottom: 2px solid var(--neon-cyan);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.main-nav ul {
+  list-style: none;         /* remove default bullet points */
+  margin: 0;
+  padding: 0;
+  display: flex;            /* horizontal flexbox alignment */
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;         /* touch-friendly target size */
+  min-width: 44px;
+  padding: 12px 22px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.05em;
+  letter-spacing: 1px;
+  transition: color 0.2s ease, background-color 0.2s ease, text-shadow 0.2s ease;
+}
+
+/* Hover state: color change + underline + subtle background */
+.main-nav a:hover {
+  color: var(--neon-pink);
+  text-shadow: 0 0 8px var(--neon-pink);
+  background-color: rgba(255, 46, 196, 0.08);
+  text-decoration: underline;
+}
+
+/* Keyboard focus state: visible outline for accessibility */
+.main-nav a:focus {
+  outline: 3px solid var(--neon-cyan);
+  outline-offset: -3px;
+  color: var(--neon-cyan);
+}
+
+/* Active / current page state */
+.main-nav a:active,
+.main-nav a.active {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 8px var(--neon-cyan);
+  border-bottom: 3px solid var(--neon-cyan);
+}
+
+/* ===== Page Content ===== */
+main {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+section {
+  margin-bottom: 50px;
+  border: 1px solid var(--neon-cyan);
+  background: rgba(0, 255, 242, 0.04);
+  padding: 20px 25px;
+  border-radius: 4px;
+}
+
+h1 {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 6px var(--neon-cyan);
+}
+
+h2 {
+  color: var(--neon-pink);
+  text-shadow: 0 0 6px var(--neon-pink);
+  margin-top: 0;
+}
+
+a {
+  color: var(--neon-cyan);
+}
+
+/* ===== Mobile Responsiveness ===== */
+@media (max-width: 600px) {
+  .main-nav ul {
+    flex-direction: column;   /* stack nav links vertically on small screens */
+    align-items: stretch;
+  }
+
+  .main-nav a {
+    width: 100%;
+    padding: 14px 20px;       /* keep touch target comfortable when stacked */
+  }
+}
