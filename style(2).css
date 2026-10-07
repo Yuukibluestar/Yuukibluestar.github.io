@@ -1,0 +1,336 @@
+/* ==========================================================
+   Pixel Futures Co. - style.css
+   Part 1: original template styles (unchanged, moved from the
+   <style> block in index.html into this external file)
+   Part 2: navigation bar + dropdown (new)
+   ========================================================== */
+
+/* ---------- PART 1: ORIGINAL TEMPLATE ---------- */
+
+:root {
+  --neon-cyan: #00fff2;
+  --neon-pink: #ff2ec4;
+  --neon-yellow: #ffe100;
+  --bg-dark: #0a0a12;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  background-image:
+    linear-gradient(rgba(255,46,196,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,46,196,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: #ddd;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Crect x='2' y='2' width='4' height='4' fill='%2300fff2'/%3E%3Crect x='6' y='6' width='4' height='4' fill='%2300fff2'/%3E%3Crect x='10' y='10' width='4' height='4' fill='%2300fff2'/%3E%3Crect x='14' y='14' width='4' height='4' fill='%2300fff2'/%3E%3C/svg%3E") 0 0, auto;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* CRT scanline overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.035) 0px,
+    rgba(255,255,255,0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 999;
+
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  border-bottom: 2px solid var(--neon-pink);
+}
+
+header img {
+  height: 55px;
+  width: 55px;
+  border-radius: 6px;
+  border: 2px solid var(--neon-cyan);
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.4em;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 5px var(--neon-cyan), 0 0 15px var(--neon-cyan);
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+main {
+  max-width: 750px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.tagline {
+  font-size: 1.4em;
+  color: var(--neon-yellow);
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.tagline::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+section {
+  border: 1px solid var(--neon-cyan);
+  background: rgba(0, 255, 242, 0.04);
+  padding: 20px 25px;
+  margin-bottom: 35px;
+  border-radius: 4px;
+}
+
+h2 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.9em;
+  color: var(--neon-pink);
+  text-shadow: 0 0 6px var(--neon-pink);
+  margin-top: 0;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 320px;
+  display: block;
+  margin: 15px auto 0;
+  border: 3px solid var(--neon-cyan);
+  filter: saturate(1.1) contrast(1.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 25px var(--neon-cyan);
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  border-top: 2px solid var(--neon-pink);
+  font-size: 0.9em;
+}
+
+footer a {
+  color: var(--neon-yellow);
+  text-decoration: none;
+  margin: 0 10px;
+  transition: text-shadow 0.2s ease, color 0.2s ease;
+}
+
+footer a:hover {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.cursor-trail {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--neon-cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 8px var(--neon-cyan);
+  animation: fadeTrail 0.5s forwards;
+  z-index: 998;
+}
+
+@keyframes fadeTrail {
+  to { opacity: 0; transform: scale(0.2); }
+}
+
+
+/* ---------- PART 2: NAVIGATION BAR (new) ---------- */
+
+/* Nav wrapper: sits under the header, matches its pink border */
+.site-nav {
+  --nav-bg: #0d0d1a;
+  background: var(--nav-bg);
+  border-bottom: 2px solid var(--neon-pink);
+}
+
+/* Flexbox row: no bullets, links centered horizontally */
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Links and dropdown button share one style; 44px minimum touch target */
+.site-nav a,
+.site-nav .dropdown-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px 18px;
+  background: none;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  color: var(--neon-cyan);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.25s ease, background-color 0.25s ease,
+              border-color 0.25s ease, text-shadow 0.25s ease;
+}
+
+/* Rollover: pink glow + underline */
+.site-nav a:hover,
+.site-nav .dropdown-toggle:hover {
+  color: var(--neon-pink);
+  background-color: rgba(255, 46, 196, 0.1);
+  border-bottom-color: var(--neon-pink);
+  text-shadow: 0 0 8px var(--neon-pink);
+}
+
+/* Keyboard focus: thick yellow outline */
+.site-nav a:focus-visible,
+.site-nav .dropdown-toggle:focus-visible {
+  outline: 3px solid var(--neon-yellow);
+  outline-offset: -3px;
+  color: var(--neon-yellow);
+}
+
+/* Pressed state: solid cyan block */
+.site-nav a:active,
+.site-nav .dropdown-toggle:active {
+  background-color: var(--neon-cyan);
+  color: var(--bg-dark);
+  text-shadow: none;
+}
+
+/* Current page (set with aria-current in the HTML) */
+.site-nav a[aria-current="page"],
+.site-nav .dropdown-toggle[aria-current="page"] {
+  color: var(--neon-yellow);
+  border-bottom-color: var(--neon-yellow);
+}
+
+/* ----- Dropdown submenu (Inventory) ----- */
+
+/* Parent item anchors the submenu */
+.has-dropdown { position: relative; }
+
+/* Arrow that flips when open */
+.dropdown-toggle::after {
+  content: "\25BE";
+  font-size: 0.9rem;
+  transition: transform 0.25s ease;
+}
+
+.has-dropdown.open .dropdown-toggle::after { transform: rotate(180deg); }
+
+/* Submenu panel: hidden until opened */
+.site-nav .submenu {
+  display: none;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  z-index: 100;
+  background: var(--nav-bg);
+  border: 2px solid var(--neon-pink);
+  box-shadow: 0 8px 20px rgba(255, 46, 196, 0.3);
+}
+
+.site-nav .submenu a {
+  justify-content: flex-start;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 46, 196, 0.25);
+}
+
+.site-nav .submenu li:last-child a { border-bottom: 0; }
+
+/* Open by click/tap/keyboard (script.js adds .open) */
+.has-dropdown.open .submenu { display: flex; }
+
+/* Open on hover for mouse users on desktop */
+@media (hover: hover) and (min-width: 501px) {
+  .has-dropdown:hover .submenu { display: flex; }
+}
+
+/* ----- Media queries ----- */
+
+/* Tablets: tighter links */
+@media (max-width: 768px) {
+  .site-nav a,
+  .site-nav .dropdown-toggle {
+    padding: 10px 12px;
+    font-size: 0.6rem;
+  }
+}
+
+/* Phones: vertical menu, full-width tap targets, submenu opens inline */
+@media (max-width: 500px) {
+  .site-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .site-nav a,
+  .site-nav .dropdown-toggle {
+    width: 100%;
+    min-height: 48px;
+    justify-content: flex-start;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255, 46, 196, 0.3);
+    border-left: 4px solid transparent;
+  }
+
+  .site-nav .dropdown-toggle { justify-content: space-between; }
+
+  .site-nav a:hover,
+  .site-nav .dropdown-toggle:hover {
+    border-bottom-color: rgba(255, 46, 196, 0.3);
+    border-left-color: var(--neon-pink);
+  }
+
+  .site-nav a[aria-current="page"],
+  .site-nav .dropdown-toggle[aria-current="page"] {
+    border-bottom-color: rgba(255, 46, 196, 0.3);
+    border-left-color: var(--neon-yellow);
+  }
+
+  .site-nav .submenu {
+    position: static;
+    min-width: 0;
+    border: 0;
+    box-shadow: none;
+    background: rgba(255, 46, 196, 0.06);
+  }
+
+  .site-nav .submenu a { padding-left: 40px; }
+}
