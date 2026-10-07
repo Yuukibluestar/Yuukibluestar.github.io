@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Futures Co.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Semantic nav wrapper with unordered list of links -->
+  <nav class="main-nav" aria-label="Primary navigation">
+    <ul>
+      <li><a href="#home" class="active" aria-current="page">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home">
+    <img src="logo.jpg" alt="Pixel Futures Co. logo">
+    <h1>PIXEL FUTURES CO.</h1>
+  </header>
+
+  <main>
+    <p class="tagline">BUILDING TOMORROW, ONE PIXEL AT A TIME</p>
+
+    <section id="intro">
+      <h2>&gt; INTRO</h2>
+      <p>Pixel Futures Co. is here to help you relive the past. We specialize in restoring and selling classic consoles, so the games and systems you grew up with can find a home in your life again.</p>
+    </section>
+
+    <section id="about">
+      <h2>&gt; ABOUT ME</h2>
+      <p>I'm Irving Melendez, a lifelong gamer with a growing interest in game design and older consoles. I'm building Pixel Futures Co. as part of my coursework — a brand rooted in nostalgia, made by someone who never really stopped loving retro gaming.</p>
+    </section>
+
+    <section id="gallery" class="gallery">
+      <h2>&gt; GALLERY</h2>
+      <img src="photo.jpg" alt="Shelf of restored retro game consoles">
+    </section>
+
+    <section id="contact">
+      <h2>&gt; CONTACT</h2>
+      <p>Reach out via <a href="mailto:youremail@example.com">email</a> or <a href="https://github.com/Yuukibluestar" target="_blank">GitHub</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2012 Pixel Futures Co. All Rights Reserved.</p>
+    <p>
+      <a href="https://github.com/Yuukibluestar" target="_blank">GitHub</a> |
+      <a href="mailto:youremail@example.com">Email</a> |
+      <a href="#">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    document.addEventListener('mousemove', (e) => {
+      const dot = document.createElement('div');
+      dot.className = 'cursor-trail';
+      dot.style.left = e.pageX + 'px';
+      dot.style.top = e.pageY + 'px';
+      document.body.appendChild(dot);
+      setTimeout(() => dot.remove(), 500);
+    });
+  </script>
+
+</body>
+</html>
