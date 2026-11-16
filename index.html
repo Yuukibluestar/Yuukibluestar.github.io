@@ -6,6 +6,7 @@
 <title>Pixel Futures Co.</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="slider.css">
 </head>
 <body>
   
@@ -47,7 +48,42 @@
 
     <section class="gallery">
       <h2>&gt; GALLERY</h2>
-      <img src="photo.jpg" alt="Project or concept image">
+
+      <div class="px-slider" id="pxSlider" role="region" aria-roledescription="carousel" aria-label="Retro game shop photo slideshow">
+        <div class="px-stage">
+        <figure class="px-slide active">
+          <img class="px-bg" src="slide-console-collection.jpg" alt="" aria-hidden="true">
+          <img class="px-img" src="slide-console-collection.jpg" alt="A pile of classic game consoles and controllers from Atari to Xbox 360">
+          <figcaption class="px-caption"><h3>A Lifetime of Consoles</h3><p>Atari to Xbox 360, every generation under one roof.</p></figcaption>
+        </figure>
+        <figure class="px-slide">
+          <img class="px-bg" src="slide-cartridge-wall.jpg" alt="" aria-hidden="true">
+          <img class="px-img" src="slide-cartridge-wall.jpg" alt="Store wall packed with NES and SNES game cartridges" loading="lazy">
+          <figcaption class="px-caption"><h3>The Cartridge Wall</h3><p>Hundreds of NES and SNES carts, ready to play.</p></figcaption>
+        </figure>
+        <figure class="px-slide">
+          <img class="px-bg" src="slide-game-station.jpg" alt="" aria-hidden="true">
+          <img class="px-img" src="slide-game-station.jpg" alt="Retro game store counter glowing with neon light" loading="lazy">
+          <figcaption class="px-caption"><h3>Neon Nights</h3><p>Browse the glass case for rare finds and new arrivals.</p></figcaption>
+        </figure>
+        <figure class="px-slide">
+          <img class="px-bg" src="slide-retro-handheld.jpg" alt="" aria-hidden="true">
+          <img class="px-img" src="slide-retro-handheld.jpg" alt="Retro handheld console glowing on a wooden stand" loading="lazy">
+          <figcaption class="px-caption"><h3>Handheld Hidden Gems</h3><p>Little systems with big memories.</p></figcaption>
+        </figure>
+        </div>
+        <button type="button" class="px-btn px-prev" id="pxPrev" aria-label="Previous slide">&#9664;</button>
+        <button type="button" class="px-btn px-next" id="pxNext" aria-label="Next slide">&#9654;</button>
+        <button type="button" class="px-btn px-play" id="pxPlay" aria-label="Pause slideshow">&#10074;&#10074;</button>
+        <div class="px-progress"><span id="pxProgress"></span></div>
+      </div>
+
+      <div class="px-thumbs" id="pxThumbs">
+      <button type="button" class="px-thumb active" aria-label="Show slide 1: A Lifetime of Consoles"><img src="slide-console-collection-thumb.jpg" alt=""></button>
+      <button type="button" class="px-thumb" aria-label="Show slide 2: The Cartridge Wall"><img src="slide-cartridge-wall-thumb.jpg" alt=""></button>
+      <button type="button" class="px-thumb" aria-label="Show slide 3: Neon Nights"><img src="slide-game-station-thumb.jpg" alt=""></button>
+      <button type="button" class="px-thumb" aria-label="Show slide 4: Handheld Hidden Gems"><img src="slide-retro-handheld-thumb.jpg" alt=""></button>
+      </div>
     </section>
   </main>
 
@@ -71,6 +107,7 @@
     });
   </script>
   <script src="script.js"></script>
+  <script src="slider.js"></script>
 
 </body>
 </html>
