@@ -38,13 +38,67 @@
 
     <section class="app-intro">
       <h2>&gt; APPLICATIONS</h2>
-      <p>Three working JavaScript applications that support the shop. Try them right here on the page.</p>
-      <p><a href="#trade-in-app">Trade-In Value</a> | <a href="#order-app">Order Total</a> | <a href="#form-app">Form Validation</a></p>
+      <p>Working JavaScript applications built for this course, plus a few tools for the shop. Try them right here on the page.</p>
+      <p><a href="#game-value-app">Game Collection Value</a> | <a href="#mortgage-app">Mortgage Calculator</a> | <a href="#trade-in-app">Trade-In Value</a> | <a href="#order-app">Order Total</a> | <a href="#form-app">Form Validation</a></p>
     </section>
+
+    <!-- COURSE APP: GAME COLLECTION VALUE -->
+    <section id="game-value-app">
+      <h2>&gt; GAME COLLECTION VALUE CALCULATOR</h2>
+      <div class="app-logo" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="72" height="72" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round">
+          <path d="M16 20h32a10 10 0 0 1 10 10l3 14a6 6 0 0 1-10 5l-6-7H19l-6 7a6 6 0 0 1-10-5l3-14a10 10 0 0 1 10-10z"/>
+          <path d="M18 29v8M14 33h8"/><circle cx="43" cy="31" r="2"/><circle cx="49" cy="36" r="2"/>
+        </svg>
+      </div>
+      <p class="app-meta">Enter how many games you have and the average price of each one to see what your collection is worth combined.</p>
+      <form class="app-form" id="gameValueForm" novalidate>
+        <div class="field">
+          <label for="gv-count">Number of games</label>
+          <input id="gv-count" type="text" inputmode="numeric" placeholder="e.g. 12">
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="gv-price">Average price per game ($)</label>
+          <input id="gv-price" type="text" inputmode="decimal" placeholder="e.g. 24.99">
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <button class="px-submit" type="submit">CALCULATE VALUE</button>
+      </form>
+      <div class="result" id="gameValueResult" role="status" aria-live="polite" hidden></div>
+      <p class="note">Formula: collection value = number of games x average price per game.</p>
+    </section>
+
+    <!-- COURSE APP: MORTGAGE -->
+    <section id="mortgage-app">
+      <h2>&gt; MORTGAGE CALCULATOR</h2>
+      <p class="app-meta">Estimate a monthly mortgage payment from the loan amount, interest rate, and loan length.</p>
+      <form class="app-form" id="mortgageForm" novalidate>
+        <div class="field">
+          <label for="mg-amount">Loan amount ($)</label>
+          <input id="mg-amount" type="text" inputmode="decimal" placeholder="e.g. 250000">
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="mg-rate">Annual interest rate (%)</label>
+          <input id="mg-rate" type="text" inputmode="decimal" placeholder="e.g. 6.5">
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="mg-years">Loan length (years)</label>
+          <input id="mg-years" type="text" inputmode="numeric" placeholder="e.g. 30">
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <button class="px-submit" type="submit">CALCULATE PAYMENT</button>
+      </form>
+      <div class="result" id="mortgageResult" role="status" aria-live="polite" hidden></div>
+    </section>
+
+    <h2 class="group-title">&gt; MORE SHOP TOOLS</h2>
 
     <!-- APP 1 -->
     <section id="trade-in-app">
-      <h2>&gt; 1. TRADE-IN VALUE CALCULATOR</h2>
+      <h2>&gt; TRADE-IN VALUE CALCULATOR</h2>
       <p class="app-meta">Estimate what we might offer for your console.</p>
       <form class="app-form" id="tradeInForm" novalidate>
         <div class="field">
@@ -81,7 +135,7 @@
 
     <!-- APP 2 -->
     <section id="order-app">
-      <h2>&gt; 2. ORDER TOTAL CALCULATOR</h2>
+      <h2>&gt; ORDER TOTAL CALCULATOR</h2>
       <p class="app-meta">Price, quantity, tax, and shipping for an order.</p>
       <form class="app-form" id="orderForm" novalidate>
         <div class="field">
@@ -110,7 +164,7 @@
 
     <!-- APP 3 -->
     <section id="form-app">
-      <h2>&gt; 3. FORM VALIDATION APP</h2>
+      <h2>&gt; FORM VALIDATION APP</h2>
       <p class="app-meta">Sign up for restock alerts. The form checks each field before it sends.</p>
       <form class="app-form" data-validate novalidate>
         <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name"><span class="error" aria-live="polite"></span></div>

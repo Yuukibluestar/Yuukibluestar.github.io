@@ -11,6 +11,67 @@ function setError(field, message) {
   if (input) input.classList.toggle('invalid', message !== '');
 }
 
+/* ---------- Course app: Game Collection Value Calculator ---------- */
+// Two inputs, one function: collection value = number of games * average price
+function calculateCollectionValue(numGames, avgPrice) {
+  return numGames * avgPrice;
+}
+
+const gameValueForm = document.getElementById('gameValueForm');
+if (gameValueForm) {
+  gameValueForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const countIn = document.getElementById('gv-count');
+    const priceIn = document.getElementById('gv-price');
+    const out = document.getElementById('gameValueResult');
+    const count = Number(countIn.value);
+    const price = parseFloat(priceIn.value.replace(/[$,]/g, ''));
+    const countBad = countIn.value.trim() === '' || !Number.isInteger(count) || count < 1;
+    const priceBad = isNaN(price) || price <= 0;
+    setError(countIn.parentElement, countBad ? 'Enter a whole number of games, 1 or more.' : '');
+    setError(priceIn.parentElement, priceBad ? 'Enter an average price greater than 0.' : '');
+    if (countBad || priceBad) { out.hidden = true; return; }
+    const total = calculateCollectionValue(count, price);
+    out.innerHTML = '<p class="big">' + money(total) + ' total value</p>' +
+      '<p>' + count + ' game' + (count === 1 ? '' : 's') + ' x ' + money(price) + ' each</p>';
+    out.hidden = false;
+  });
+}
+
+/* ---------- Course app: Mortgage Calculator ---------- */
+function calculateMortgage(amount, annualRatePct, years) {
+  const n = years * 12;
+  const r = annualRatePct / 100 / 12;
+  const payment = r === 0 ? amount / n : amount * r / (1 - Math.pow(1 + r, -n));
+  return { payment: payment, total: payment * n, interest: payment * n - amount };
+}
+
+const mortgageForm = document.getElementById('mortgageForm');
+if (mortgageForm) {
+  mortgageForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const amtIn = document.getElementById('mg-amount');
+    const rateIn = document.getElementById('mg-rate');
+    const yrsIn = document.getElementById('mg-years');
+    const out = document.getElementById('mortgageResult');
+    const amount = parseFloat(amtIn.value.replace(/[$,]/g, ''));
+    const rate = parseFloat(rateIn.value);
+    const years = Number(yrsIn.value);
+    const amtBad = isNaN(amount) || amount <= 0;
+    const rateBad = isNaN(rate) || rate < 0 || rate > 100;
+    const yrsBad = !Number.isInteger(years) || years < 1 || years > 50;
+    setError(amtIn.parentElement, amtBad ? 'Enter a loan amount greater than 0.' : '');
+    setError(rateIn.parentElement, rateBad ? 'Enter a rate from 0 to 100.' : '');
+    setError(yrsIn.parentElement, yrsBad ? 'Enter a whole number of years from 1 to 50.' : '');
+    if (amtBad || rateBad || yrsBad) { out.hidden = true; return; }
+    const r = calculateMortgage(amount, rate, years);
+    out.innerHTML = '<p class="big">' + money(r.payment) + ' per month</p>' +
+      '<table><tr><td>Total of ' + (years * 12) + ' payments</td><td>' + money(r.total) + '</td></tr>' +
+      '<tr><td>Total interest</td><td>' + money(r.interest) + '</td></tr></table>';
+    out.hidden = false;
+  });
+}
+
 /* ---------- App 1: Trade-In Value Calculator ---------- */
 const tradeInForm = document.getElementById('tradeInForm');
 if (tradeInForm) {
