@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Applications | Pixel Futures Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="apps.css">
+</head>
+<body>
+
+  <header>
+    <img src="logo.jpg" alt="Company Logo">
+    <h1>PIXEL FUTURES CO.</h1>
+  </header>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li class="has-dropdown">
+        <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="inventory-menu">Inventory</button>
+        <ul class="submenu" id="inventory-menu">
+          <li><a href="inventory.html">All Items</a></li>
+          <li><a href="inventory.html#consoles">Consoles</a></li>
+          <li><a href="inventory.html#games">Games</a></li>
+        </ul>
+      </li>
+      <li><a href="trade-in.html">Trade-In Info</a></li>
+      <li><a href="applications.html" aria-current="page">Applications</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <p class="tagline">TOOLS FOR THE PIXEL FUTURES SHOP</p>
+
+    <section class="app-intro">
+      <h2>&gt; APPLICATIONS</h2>
+      <p>Three working JavaScript applications that support the shop. Try them right here on the page.</p>
+      <p><a href="#trade-in-app">Trade-In Value</a> | <a href="#order-app">Order Total</a> | <a href="#form-app">Form Validation</a></p>
+    </section>
+
+    <!-- APP 1 -->
+    <section id="trade-in-app">
+      <h2>&gt; 1. TRADE-IN VALUE CALCULATOR</h2>
+      <p class="app-meta">Estimate what we might offer for your console.</p>
+      <form class="app-form" id="tradeInForm" novalidate>
+        <div class="field">
+          <label for="ti-console">Console</label>
+          <select id="ti-console">
+            <option value="">Choose a console...</option>
+            <option value="45">PlayStation 2</option>
+            <option value="40">Nintendo Wii</option>
+            <option value="50">Nintendo GameCube</option>
+            <option value="35">Xbox (Original)</option>
+            <option value="60">Xbox 360</option>
+            <option value="55">PlayStation 3</option>
+          </select>
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="ti-condition">Condition</label>
+          <select id="ti-condition">
+            <option value="">Choose a condition...</option>
+            <option value="1">Mint</option>
+            <option value="0.8">Good</option>
+            <option value="0.55">Fair</option>
+            <option value="0.3">Poor</option>
+          </select>
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="field check"><input type="checkbox" id="ti-box"><label for="ti-box">Includes original box (+$10)</label></div>
+        <div class="field check"><input type="checkbox" id="ti-controller"><label for="ti-controller">Includes controller (+$8)</label></div>
+        <div class="field check"><input type="checkbox" id="ti-tested"><label for="ti-tested">Tested and working (+$5)</label></div>
+        <button class="px-submit" type="submit">CALCULATE</button>
+      </form>
+      <div class="result" id="tradeInResult" role="status" aria-live="polite" hidden></div>
+    </section>
+
+    <!-- APP 2 -->
+    <section id="order-app">
+      <h2>&gt; 2. ORDER TOTAL CALCULATOR</h2>
+      <p class="app-meta">Price, quantity, tax, and shipping for an order.</p>
+      <form class="app-form" id="orderForm" novalidate>
+        <div class="field">
+          <label for="or-price">Item price ($)</label>
+          <input id="or-price" type="text" inputmode="decimal" placeholder="e.g. 34.99">
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="or-qty">Quantity</label>
+          <input id="or-qty" type="text" inputmode="numeric" value="1">
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="or-ship">Shipping</label>
+          <select id="or-ship">
+            <option value="pickup">Store pickup ($0.00)</option>
+            <option value="standard" selected>Standard ($6.99)</option>
+            <option value="express">Express ($14.99)</option>
+          </select>
+        </div>
+        <button class="px-submit" type="submit">CALCULATE</button>
+        <p class="note">Sales tax: 8.875%. Orders over $75 ship standard for free.</p>
+      </form>
+      <div class="result" id="orderResult" role="status" aria-live="polite" hidden></div>
+    </section>
+
+    <!-- APP 3 -->
+    <section id="form-app">
+      <h2>&gt; 3. FORM VALIDATION APP</h2>
+      <p class="app-meta">Sign up for restock alerts. The form checks each field before it sends.</p>
+      <form class="app-form" data-validate novalidate>
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name"><span class="error" aria-live="polite"></span></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"><span class="error" aria-live="polite"></span></div>
+        <div class="field"><label for="f-phone">Phone (optional)</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="555-123-4567"><span class="error" aria-live="polite"></span></div>
+        <button class="px-submit" type="submit">SIGN UP</button>
+        <p class="form-status" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Pixel Futures Co. All Rights Reserved.</p>
+    <p>
+      <a href="https://github.com/Yuukibluestar" target="_blank" rel="noopener">GitHub</a> |
+      <a href="mailto:youremail@example.com">Email</a> |
+      <a href="#">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    document.addEventListener('mousemove', (e) => {
+      const dot = document.createElement('div');
+      dot.className = 'cursor-trail';
+      dot.style.left = e.pageX + 'px';
+      dot.style.top = e.pageY + 'px';
+      document.body.appendChild(dot);
+      setTimeout(() => dot.remove(), 500);
+    });
+  </script>
+  <script src="script.js"></script>
+  <script src="apps.js"></script>
+</body>
+</html>

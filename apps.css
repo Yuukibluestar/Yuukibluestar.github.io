@@ -1,0 +1,91 @@
+/* Pixel Futures Co. - apps.css: styles for content cards and the Applications page.
+   Uses the same neon variables, fonts, and colors as style.css. */
+
+.note { color: var(--neon-yellow); font-size: 0.9em; }
+.feature-list { padding-left: 22px; line-height: 1.4; }
+.feature-list li { margin-bottom: 8px; }
+.feature-list strong { color: var(--neon-cyan); }
+.inline-link, main section p a { color: var(--neon-yellow); }
+.inline-link:hover, main section p a:hover { color: var(--neon-cyan); }
+
+.about-photo {
+  display: block; width: 100%; max-width: 260px; margin: 10px auto 15px;
+  border: 3px solid var(--neon-cyan); border-radius: 4px;
+}
+
+/* Inventory cards */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 15px; }
+.card { border: 1px solid var(--neon-pink); background: rgba(255,46,196,0.06); padding: 14px; border-radius: 4px; }
+.card h3 { font-family: 'Press Start 2P', cursive; font-size: 0.6em; line-height: 1.6; color: var(--neon-cyan); margin: 0 0 8px; }
+.card p { margin: 0 0 8px; }
+.price { color: var(--neon-yellow); font-size: 1.2em; }
+
+/* Applications page */
+.app-intro { text-align: center; }
+.app-meta { color: var(--neon-yellow); margin: 0 0 12px; }
+.app-form .field { margin-bottom: 14px; display: flex; flex-direction: column; }
+.app-form label { color: var(--neon-cyan); margin-bottom: 4px; }
+.app-form input, .app-form select, .app-form textarea {
+  font-family: 'VT323', monospace; font-size: 1em; color: #fff;
+  background: #0d0d1a; border: 2px solid var(--neon-cyan); border-radius: 3px;
+  padding: 8px 10px; min-height: 44px; width: 100%;
+}
+.app-form textarea { min-height: 100px; resize: vertical; }
+.app-form input:focus, .app-form select:focus, .app-form textarea:focus {
+  outline: 3px solid var(--neon-yellow); outline-offset: 1px;
+}
+.app-form .invalid { border-color: #ff5c5c; }
+.app-form .error { color: #ff7b7b; min-height: 1.2em; font-size: 0.9em; }
+.app-form .check { flex-direction: row; align-items: center; gap: 10px; }
+.app-form .check input { width: 22px; min-height: 22px; height: 22px; }
+.app-form .check label { margin: 0; }
+
+.px-submit {
+  font-family: 'Press Start 2P', cursive; font-size: 0.7rem; color: var(--bg-dark);
+  background: var(--neon-cyan); border: 0; border-radius: 3px; padding: 12px 20px; min-height: 44px; cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.px-submit:hover { background: var(--neon-pink); box-shadow: 0 0 12px var(--neon-pink); }
+.px-submit:focus-visible { outline: 3px solid var(--neon-yellow); outline-offset: 2px; }
+
+.result {
+  margin-top: 15px; padding: 12px 15px; border: 2px dashed var(--neon-yellow);
+  background: rgba(255,225,0,0.05); border-radius: 4px;
+}
+.result .big { font-family: 'Press Start 2P', cursive; font-size: 1.1em; color: var(--neon-yellow); }
+.result table { width: 100%; border-collapse: collapse; }
+.result td { padding: 3px 0; }
+.result td:last-child { text-align: right; }
+.result tr.total td { color: var(--neon-yellow); border-top: 1px solid var(--neon-pink); padding-top: 6px; }
+.form-status { color: var(--neon-cyan); margin: 12px 0 0; min-height: 1.2em; }
+.form-status.ok { color: #6dff9c; }
+
+@media (max-width: 500px) {
+  .card-grid { grid-template-columns: 1fr; }
+}
+
+/* Item cards with photo area, captions, and details */
+.item .meta { color: #bbb; font-size: 0.95em; }
+.item-photo { margin: 0 0 10px; }
+.item-photo figcaption { font-size: 0.85em; color: var(--neon-yellow); margin-top: 6px; }
+.photo-placeholder {
+  display: flex; align-items: center; justify-content: center; height: 110px;
+  border: 2px dashed var(--neon-cyan); border-radius: 3px;
+  font-family: 'Press Start 2P', cursive; font-size: 0.8em; color: var(--neon-cyan);
+  background: rgba(0,255,242,0.05);
+}
+.item-photo img { width: 100%; border: 2px solid var(--neon-cyan); border-radius: 3px; }
+
+/* Figures on the About page */
+.about-figure { margin: 15px 0 0; }
+.about-figure img { width: 100%; max-width: 100%; border: 3px solid var(--neon-cyan); border-radius: 4px; display: block; }
+.about-figure figcaption { color: var(--neon-yellow); font-size: 0.9em; margin-top: 6px; text-align: center; }
+
+/* Trade-in conditions table */
+.info-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.info-table th, .info-table td { text-align: left; padding: 8px 10px; border: 1px solid rgba(0,255,242,0.4); }
+.info-table th { color: var(--neon-pink); font-family: 'Press Start 2P', cursive; font-size: 0.6em; }
+.info-table td:first-child { color: var(--neon-cyan); white-space: nowrap; }
+
+.item .item-photo figcaption { font-size: 0.95em; line-height: 1.2; margin-bottom: 6px; }
+.item .meta { font-size: 0.85em; margin: 0 0 6px; }
