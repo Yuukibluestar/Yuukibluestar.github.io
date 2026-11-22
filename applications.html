@@ -38,8 +38,8 @@
 
     <section class="app-intro">
       <h2>&gt; APPLICATIONS</h2>
-      <p>Working JavaScript applications built for this course, plus a few tools for the shop. Try them right here on the page.</p>
-      <p><a href="#game-value-app">Game Collection Value</a> | <a href="#mortgage-app">Mortgage Calculator</a> | <a href="#trade-in-app">Trade-In Value</a> | <a href="#order-app">Order Total</a> | <a href="#form-app">Form Validation</a></p>
+      <p>Two working JavaScript calculators for the shop. Try them right here on the page.</p>
+      <p><a href="#game-value-app">Game Collection Value</a> | <a href="#trade-in-app">Trade-In Value Calculator</a></p>
     </section>
 
     <!-- COURSE APP: GAME COLLECTION VALUE -->
@@ -69,34 +69,6 @@
       <p class="note">Formula: collection value = number of games x average price per game.</p>
     </section>
 
-    <!-- COURSE APP: MORTGAGE -->
-    <section id="mortgage-app">
-      <h2>&gt; MORTGAGE CALCULATOR</h2>
-      <p class="app-meta">Estimate a monthly mortgage payment from the loan amount, interest rate, and loan length.</p>
-      <form class="app-form" id="mortgageForm" novalidate>
-        <div class="field">
-          <label for="mg-amount">Loan amount ($)</label>
-          <input id="mg-amount" type="text" inputmode="decimal" placeholder="e.g. 250000">
-          <span class="error" aria-live="polite"></span>
-        </div>
-        <div class="field">
-          <label for="mg-rate">Annual interest rate (%)</label>
-          <input id="mg-rate" type="text" inputmode="decimal" placeholder="e.g. 6.5">
-          <span class="error" aria-live="polite"></span>
-        </div>
-        <div class="field">
-          <label for="mg-years">Loan length (years)</label>
-          <input id="mg-years" type="text" inputmode="numeric" placeholder="e.g. 30">
-          <span class="error" aria-live="polite"></span>
-        </div>
-        <button class="px-submit" type="submit">CALCULATE PAYMENT</button>
-      </form>
-      <div class="result" id="mortgageResult" role="status" aria-live="polite" hidden></div>
-    </section>
-
-    <h2 class="group-title">&gt; MORE SHOP TOOLS</h2>
-
-    <!-- APP 1 -->
     <section id="trade-in-app">
       <h2>&gt; TRADE-IN VALUE CALCULATOR</h2>
       <p class="app-meta">Estimate what we might offer for your console.</p>
@@ -133,48 +105,7 @@
       <div class="result" id="tradeInResult" role="status" aria-live="polite" hidden></div>
     </section>
 
-    <!-- APP 2 -->
-    <section id="order-app">
-      <h2>&gt; ORDER TOTAL CALCULATOR</h2>
-      <p class="app-meta">Price, quantity, tax, and shipping for an order.</p>
-      <form class="app-form" id="orderForm" novalidate>
-        <div class="field">
-          <label for="or-price">Item price ($)</label>
-          <input id="or-price" type="text" inputmode="decimal" placeholder="e.g. 34.99">
-          <span class="error" aria-live="polite"></span>
-        </div>
-        <div class="field">
-          <label for="or-qty">Quantity</label>
-          <input id="or-qty" type="text" inputmode="numeric" value="1">
-          <span class="error" aria-live="polite"></span>
-        </div>
-        <div class="field">
-          <label for="or-ship">Shipping</label>
-          <select id="or-ship">
-            <option value="pickup">Store pickup ($0.00)</option>
-            <option value="standard" selected>Standard ($6.99)</option>
-            <option value="express">Express ($14.99)</option>
-          </select>
-        </div>
-        <button class="px-submit" type="submit">CALCULATE</button>
-        <p class="note">Sales tax: 8.875%. Orders over $75 ship standard for free.</p>
-      </form>
-      <div class="result" id="orderResult" role="status" aria-live="polite" hidden></div>
-    </section>
-
-    <!-- APP 3 -->
-    <section id="form-app">
-      <h2>&gt; FORM VALIDATION APP</h2>
-      <p class="app-meta">Sign up for restock alerts. The form checks each field before it sends.</p>
-      <form class="app-form" data-validate novalidate>
-        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name"><span class="error" aria-live="polite"></span></div>
-        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"><span class="error" aria-live="polite"></span></div>
-        <div class="field"><label for="f-phone">Phone (optional)</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="555-123-4567"><span class="error" aria-live="polite"></span></div>
-        <button class="px-submit" type="submit">SIGN UP</button>
-        <p class="form-status" role="status"></p>
-      </form>
-    </section>
-  </main>
+</main>
 
   <footer>
     <p>&copy; 2026 Pixel Futures Co. All Rights Reserved.</p>
