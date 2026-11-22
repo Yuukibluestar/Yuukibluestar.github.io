@@ -1,6 +1,6 @@
 // Pixel Futures Co. - apps.js
-// Course app: Trade-In Value Calculator   App 2: Order Total Calculator
-// App 3: Form Validation (used on the Applications and Contact pages)
+// Course apps: Game Collection Value Calculator and Trade-In Value Calculator (plus contact form validation)
+// Form validation is shared with the Contact page
 
 function money(n) { return '$' + n.toFixed(2); }
 
